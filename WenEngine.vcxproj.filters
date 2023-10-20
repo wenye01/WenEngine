@@ -27,4 +27,12 @@
   <ItemGroup>
     <FxCompile Include="shaders\test.hlsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\pic\test\awesomeface.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\pic\test\awesomeface.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
