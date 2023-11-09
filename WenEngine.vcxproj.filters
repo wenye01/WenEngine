@@ -18,14 +18,21 @@
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\includes\d3dx12.h">
+    <ClInclude Include="src\windowsCommons\d3dx12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\test.hlsl" />
+    <FxCompile Include="shaders\cube.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\pic\test\awesomeface.png">
