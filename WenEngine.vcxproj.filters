@@ -21,12 +21,21 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="WICImageLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\windowsCommons\d3dx12.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WICImageLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\error.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,5 +50,69 @@
     <Image Include="assets\pic\test\awesomeface.jpg">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="assets\bear.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\cube.dds" />
+    <Image Include="assets\cube_NRM.dds" />
+    <Image Include="assets\earth.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\Earth_512.dds" />
+    <Image Include="assets\Earth_512_Normal.dds" />
+    <Image Include="assets\GaussianNoise256.dds" />
+    <Image Include="assets\MilkyWayCube.dds" />
+    <Image Include="assets\MM.gif">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\Noise.dds" />
+    <Image Include="assets\Noise1.dds" />
+    <Image Include="assets\note.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\penny.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\plane.dds" />
+    <Image Include="assets\plane_NRM.dds" />
+    <Image Include="assets\sky_cube.dds" />
+    <Image Include="assets\Sky_cube_1024.dds" />
+    <Image Include="assets\sphere.dds" />
+    <Image Include="assets\sphere_NRM.dds" />
+    <Image Include="assets\timg.gif">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\海王星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\火星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\金星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\木星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\水星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\太阳.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\天王星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="assets\土星.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\arrow.vtn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\cube.txt" />
+    <Text Include="assets\plane.txt" />
+    <Text Include="assets\sphere.txt" />
   </ItemGroup>
 </Project>

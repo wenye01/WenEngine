@@ -132,10 +132,13 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
+    <ClCompile Include="WICImageLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\windowsCommons\d3dx12.h" />
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h" />
+    <ClInclude Include="WICImageLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\cube.hlsl">
@@ -165,8 +168,44 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\bear.jpg" />
+    <Image Include="assets\cube.dds" />
+    <Image Include="assets\cube_NRM.dds" />
+    <Image Include="assets\earth.jpg" />
+    <Image Include="assets\Earth_512.dds" />
+    <Image Include="assets\Earth_512_Normal.dds" />
+    <Image Include="assets\GaussianNoise256.dds" />
+    <Image Include="assets\MilkyWayCube.dds" />
+    <Image Include="assets\MM.gif" />
+    <Image Include="assets\Noise.dds" />
+    <Image Include="assets\Noise1.dds" />
+    <Image Include="assets\note.png" />
+    <Image Include="assets\penny.png" />
     <Image Include="assets\pic\test\awesomeface.jpg" />
     <Image Include="assets\pic\test\awesomeface.png" />
+    <Image Include="assets\plane.dds" />
+    <Image Include="assets\plane_NRM.dds" />
+    <Image Include="assets\sky_cube.dds" />
+    <Image Include="assets\Sky_cube_1024.dds" />
+    <Image Include="assets\sphere.dds" />
+    <Image Include="assets\sphere_NRM.dds" />
+    <Image Include="assets\timg.gif" />
+    <Image Include="assets\土星.jpg" />
+    <Image Include="assets\天王星.jpg" />
+    <Image Include="assets\太阳.jpg" />
+    <Image Include="assets\木星.jpg" />
+    <Image Include="assets\水星.jpg" />
+    <Image Include="assets\海王星.jpg" />
+    <Image Include="assets\火星.jpg" />
+    <Image Include="assets\金星.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\arrow.vtn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\cube.txt" />
+    <Text Include="assets\plane.txt" />
+    <Text Include="assets\sphere.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
