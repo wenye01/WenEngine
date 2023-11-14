@@ -14,7 +14,9 @@
 #include <DirectXMath.h>
 
 #include "./WindowsCommons/DDSTextureLoader12.h"
+#include "common/structures.h"
 #include "error.hpp"
+#include "Engine.h"
 
 // using namespace std; byte与c++17中的std::byte冲突
 using namespace Microsoft;
@@ -35,19 +37,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
 {
     ::CoInitialize(nullptr); // COM Init
 
-    struct
-    {
-        int wndWidth;
-        int wndHeight;
-        HWND hwnd;
-    }window;
+    Gloria::wndStruct window;
     {
         window.wndWidth  = 1024;
         window.wndHeight = 768;
         window.hwnd = nullptr;
     }
 
-    HWND hwnd1;
     try
     {
         // 窗口
@@ -56,7 +52,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
             {
                 wcex.cbSize         = sizeof(WNDCLASSEX); // 固定参数
                 wcex.style          = CS_GLOBALCLASS; // https://learn.microsoft.com/zh-cn/windows/win32/winmsg/window-class-styles
-                wcex.lpfnWndProc    = WndProc; // 回调函数，不可为nullptr
+                wcex.lpfnWndProc    = WndProc; // 回调函数，不可为nullptr，函数也不能直接返回0，使用默认函数
                 wcex.cbClsExtra     = 0;
                 wcex.cbWndExtra     = 0;
                 wcex.hInstance      = hInstance;
@@ -83,6 +79,15 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
                 throw CGRSCOMException(HRESULT_FROM_WIN32(GetLastError()));
             }
         }
+        
+
+        while (true)
+        {
+
+        }
+
+        ::CoUninitialize();
+        return 0;
     }
 
     catch (CGRSCOMException& e)
@@ -96,5 +101,5 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    return 0;
+    return DefWindowProc(hWnd, message, wParam, lParam); // 默认回调函数
 }
