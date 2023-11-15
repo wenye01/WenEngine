@@ -21,10 +21,10 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="WICImageLoader.cpp">
+    <ClCompile Include="src\Engine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine.cpp">
+    <ClCompile Include="src\graphics\RootSignatures.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,9 +33,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="WICImageLoader.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\error.hpp">
@@ -47,18 +44,15 @@
     <ClInclude Include="src\common\structures.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\graphics\RootSignatures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\test.hlsl" />
     <FxCompile Include="shaders\cube.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\pic\test\awesomeface.png">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="assets\pic\test\awesomeface.jpg">
-      <Filter>资源文件</Filter>
-    </Image>
     <Image Include="assets\bear.jpg">
       <Filter>资源文件</Filter>
     </Image>

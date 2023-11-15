@@ -130,18 +130,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\RootSignatures.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
-    <ClCompile Include="WICImageLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\RootSignatures.h" />
     <ClInclude Include="src\common\structures.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\windowsCommons\d3dx12.h" />
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h" />
-    <ClInclude Include="WICImageLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\cube.hlsl">
@@ -184,8 +184,6 @@
     <Image Include="assets\Noise1.dds" />
     <Image Include="assets\note.png" />
     <Image Include="assets\penny.png" />
-    <Image Include="assets\pic\test\awesomeface.jpg" />
-    <Image Include="assets\pic\test\awesomeface.png" />
     <Image Include="assets\plane.dds" />
     <Image Include="assets\plane_NRM.dds" />
     <Image Include="assets\sky_cube.dds" />

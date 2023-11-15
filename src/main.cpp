@@ -70,7 +70,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
             INT posX = (GetSystemMetrics(SM_CXSCREEN) - rtWnd.right - rtWnd.left) / 2;
             INT posY = (GetSystemMetrics(SM_CYSCREEN) - rtWnd.bottom - rtWnd.top) / 2;
 
-            hwnd1 = CreateWindowW(GRS_WND_CLASS_NAME, GRS_WND_TITLE, dwWndStyle
+            window.hwnd = CreateWindowW(GRS_WND_CLASS_NAME, GRS_WND_TITLE, dwWndStyle
                 , posX, posY, rtWnd.right - rtWnd.left, rtWnd.bottom - rtWnd.top
                 , nullptr, nullptr, hInstance, nullptr);
             auto er = GetLastError();
@@ -80,6 +80,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
             }
         }
         
+        ShowWindow(window.hwnd, nCmdShow);
+        UpdateWindow(window.hwnd);
 
         while (true)
         {
