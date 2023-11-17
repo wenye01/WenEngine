@@ -28,8 +28,8 @@ using namespace DirectX;
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
-#define GRS_WND_CLASS_NAME  _T("GRS Game Window Class")
-#define GRS_WND_TITLE	    _T("GRS DirectX12 Render To Texture Sample")
+#define GRS_WND_CLASS_NAME  _T("Window Class")
+#define GRS_WND_TITLE	    _T("DirectX12 ")
 
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 

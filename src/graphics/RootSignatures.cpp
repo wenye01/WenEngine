@@ -5,7 +5,7 @@ namespace Gloria
 {
     void SingleRootSignature::Init(
         ID3D12Device4* pDevice, 
-        D3D12_ROOT_SIGNATURE_FLAGS flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT)
+        D3D12_ROOT_SIGNATURE_FLAGS flags)
     {
         D3D12_VERSIONED_ROOT_SIGNATURE_DESC RootSignatureDesc = { };
         {
@@ -35,11 +35,11 @@ namespace Gloria
 
     void SingleRootSignature::AddDesriptorRange(
         D3D12_DESCRIPTOR_RANGE_TYPE rangetype,
-        UINT numdescriptors = 1,
-        UINT baseshaderregister = 0,
-        UINT registerspace = 0,
-        D3D12_DESCRIPTOR_RANGE_FLAGS flags = D3D12_DESCRIPTOR_RANGE_FLAG_NONE,
-        UINT offsetindescriptorfromtablestart = 0)
+        UINT numdescriptors,
+        UINT baseshaderregister,
+        UINT registerspace,
+        D3D12_DESCRIPTOR_RANGE_FLAGS flags,
+        UINT offsetindescriptorfromtablestart)
     {
         if (this->DescriptorRangeVector.size() != this->ParameterVector.size())
         {
@@ -60,8 +60,8 @@ namespace Gloria
 
     void SingleRootSignature::AddParameter(
         D3D12_SHADER_VISIBILITY shadervisibility,
-        D3D12_ROOT_PARAMETER_TYPE parametertype = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE,
-        UINT numdescriptorranges = 1)
+        D3D12_ROOT_PARAMETER_TYPE parametertype,
+        UINT numdescriptorranges)
     {
         if (1 != (this->DescriptorRangeVector.size() - this->ParameterVector.size()))
         {
