@@ -27,7 +27,7 @@ namespace Gloria
 
         void InitPipelineStateDesc(std::function<D3D12_GRAPHICS_PIPELINE_STATE_DESC()> psodesc);
 
-        void Get();
+        ID3D12PipelineState* Get();
     private:
         D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc;
 

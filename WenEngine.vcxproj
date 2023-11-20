@@ -130,18 +130,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\d3d12\D3D12MemoryAllocator.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Utils.cpp" />
+    <ClCompile Include="src\Engine\GameTimer.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Resource.cpp" />
     <ClCompile Include="src\graphics\PipelineStates.cpp" />
     <ClCompile Include="src\graphics\RootSignatures.cpp" />
-    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Engine\Engine.cpp" />
     <ClCompile Include="src\graphics\Shaders.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\d3d12\D3D12MemoryAllocator.h" />
+    <ClInclude Include="src\d3d12\D3D12Utils.h" />
+    <ClInclude Include="src\Engine\GameTimer.h" />
+    <ClInclude Include="src\d3d12\D3D12Resource.h" />
     <ClInclude Include="src\graphics\PipelineStates.h" />
     <ClInclude Include="src\graphics\RootSignatures.h" />
     <ClInclude Include="src\common\structures.h" />
-    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\Engine\Engine.h" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\graphics\Shaders.h" />
     <ClInclude Include="src\windowsCommons\d3dx12.h" />

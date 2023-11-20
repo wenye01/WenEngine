@@ -21,7 +21,7 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine.cpp">
+    <ClCompile Include="src\Engine\Engine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\RootSignatures.cpp">
@@ -31,6 +31,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\PipelineStates.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Resource.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\GameTimer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12MemoryAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +56,7 @@
     <ClInclude Include="src\error.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine.h">
+    <ClInclude Include="src\Engine\Engine.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\common\structures.h">
@@ -57,6 +69,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\PipelineStates.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\GameTimer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12MemoryAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

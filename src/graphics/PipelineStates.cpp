@@ -12,4 +12,9 @@ namespace Gloria
     {
         this->psoDesc = psodesc();
     }
+
+    ID3D12PipelineState* SinglePipelineState::Get()
+    {
+        return this->pIPipelineStateobject.Get();
+    }
 }
