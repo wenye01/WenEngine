@@ -44,6 +44,7 @@ namespace Gloria
     bool GloriaEngine::Initialize()
     {
         this->InitWindow();
+        return true;
     }
 
     int GloriaEngine::Run()

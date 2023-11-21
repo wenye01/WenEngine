@@ -7,11 +7,6 @@
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
-#define WND_CLASS_NAME  _T("Window Class")
-#define WND_TITLE	    _T("DirectX12 ")
-
-LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-
 int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
     try
@@ -31,9 +26,4 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
     {
         
     }
-}
-
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    return DefWindowProc(hWnd, message, wParam, lParam); // 默认回调函数
 }
