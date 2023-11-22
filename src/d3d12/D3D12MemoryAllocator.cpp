@@ -287,6 +287,19 @@ namespace Gloria
         }
     }
 
+    GloriaD3D12UploadBufferAllocator::GloriaD3D12UploadBufferAllocator(ID3D12Device* InDevice)
+    {
+        GloriaD3D12BuddyAllocator::AllocatorInitData initdate;
+        {
+            initdate.eAllocationStrategy = GloriaD3D12BuddyAllocator::AllocationStrategy::ManualSubAllocation;
+            initdate.HeapType = D3D12_HEAP_TYPE_UPLOAD;
+            initdate.ResourceFlags = D3D12_RESOURCE_FLAG_NONE;
+        }
+        Allocator = std::make_unique<GloriaD3D12MultiBuddyAllocator>(InDevice, initdate);
+
+        D3DDevice = InDevice;
+    }
+
     void* GloriaD3D12UploadBufferAllocator::AllocUploadResource(uint32_t Size, uint32_t Alignment, GloriaD3D12ResourceLocation& ResourceLocation)
     {
         this->Allocator->AllocateResource(Size, Alignment, ResourceLocation);
@@ -345,7 +358,7 @@ namespace Gloria
 
 
 
-    GloriaD3D3TextureResourceAllocator::GloriaD3D3TextureResourceAllocator(ID3D12Device* InDevice)
+    GloriaD3D12TextureResourceAllocator::GloriaD3D12TextureResourceAllocator(ID3D12Device* InDevice)
     {
         GloriaD3D12BuddyAllocator::AllocatorInitData InitData;
         InitData.eAllocationStrategy = GloriaD3D12BuddyAllocator::AllocationStrategy::PlacedResource;
@@ -357,7 +370,7 @@ namespace Gloria
         D3DDevice = InDevice;
     }
 
-    void GloriaD3D3TextureResourceAllocator::AllocTextureResource(const D3D12_RESOURCE_STATES& ResourceState, const D3D12_RESOURCE_DESC& ResourceDesc, GloriaD3D12ResourceLocation& ResourceLocation)
+    void GloriaD3D12TextureResourceAllocator::AllocTextureResource(const D3D12_RESOURCE_STATES& ResourceState, const D3D12_RESOURCE_DESC& ResourceDesc, GloriaD3D12ResourceLocation& ResourceLocation)
     {
         const D3D12_RESOURCE_ALLOCATION_INFO Info = D3DDevice->GetResourceAllocationInfo(0, 1, &ResourceDesc);
 
@@ -376,7 +389,7 @@ namespace Gloria
         }
     }
 
-    void GloriaD3D3TextureResourceAllocator::CleanUpAllocations()
+    void GloriaD3D12TextureResourceAllocator::CleanUpAllocations()
     {
         Allocator->CleanUpAllocations();
     }

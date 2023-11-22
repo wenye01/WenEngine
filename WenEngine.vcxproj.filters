@@ -45,6 +45,27 @@
     <ClCompile Include="src\d3d12\D3D12MemoryAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Buffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12View.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Device.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Swapchain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12DescriptorCache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12HeapAllocator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\windowsCommons\d3dx12.h">
@@ -81,6 +102,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\d3d12\D3D12MemoryAllocator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Buffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12View.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Swapchain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12DescriptorCache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12HeapAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

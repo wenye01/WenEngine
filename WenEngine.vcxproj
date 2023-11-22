@@ -132,6 +132,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\d3d12\D3D12DescriptorCache.cpp" />
+    <ClCompile Include="src\d3d12\D3D12HeapAllocator.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Swapchain.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Device.cpp" />
+    <ClCompile Include="src\d3d12\D3D12View.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Buffer.cpp" />
+    <ClCompile Include="src\d3d12\D3D12Common.cpp" />
     <ClCompile Include="src\d3d12\D3D12MemoryAllocator.cpp" />
     <ClCompile Include="src\d3d12\D3D12Utils.cpp" />
     <ClCompile Include="src\Engine\GameTimer.cpp" />
@@ -144,6 +151,13 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\d3d12\D3D12DescriptorCache.h" />
+    <ClInclude Include="src\d3d12\D3D12HeapAllocator.h" />
+    <ClInclude Include="src\d3d12\D3D12Swapchain.h" />
+    <ClInclude Include="src\d3d12\D3D12Device.h" />
+    <ClInclude Include="src\d3d12\D3D12View.h" />
+    <ClInclude Include="src\d3d12\D3D12Buffer.h" />
+    <ClInclude Include="src\d3d12\D3D12Common.h" />
     <ClInclude Include="src\d3d12\D3D12MemoryAllocator.h" />
     <ClInclude Include="src\d3d12\D3D12Utils.h" />
     <ClInclude Include="src\Engine\GameTimer.h" />

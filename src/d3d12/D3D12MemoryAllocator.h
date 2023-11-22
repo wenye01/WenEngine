@@ -157,10 +157,10 @@ namespace Gloria
         ID3D12Device* D3DDevice = nullptr;
     };
 
-    class GloriaD3D3TextureResourceAllocator
+    class GloriaD3D12TextureResourceAllocator
     {
     public:
-        GloriaD3D3TextureResourceAllocator(ID3D12Device* InDevice);
+        GloriaD3D12TextureResourceAllocator(ID3D12Device* InDevice);
 
         void AllocTextureResource(const D3D12_RESOURCE_STATES& ResourceState, const D3D12_RESOURCE_DESC& ResourceDesc, GloriaD3D12ResourceLocation& ResourceLocation);
 
