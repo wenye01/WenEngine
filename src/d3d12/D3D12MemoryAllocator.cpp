@@ -21,7 +21,7 @@ namespace Gloria
     }
 
     void GloriaD3D12BuddyAllocator::Initialize()
-    {
+    {// 依据分配方式创建不同的堆
         if (InitData.eAllocationStrategy == AllocationStrategy::PlacedResource)
         {
             D3D12_HEAP_PROPERTIES HeapProperties(InitData.HeapType);
@@ -73,7 +73,7 @@ namespace Gloria
             }
         }
 
-        // Initialize free blocks, add the free block for MaxOrder
+        // 初始化空闲区块
         MaxOrder = this->UnitSize2Order(this->Size2UnitSize(DEFAULT_POOL_SIZE));
 
         for (uint32_t i = 0; i <= MaxOrder; i++)
@@ -142,7 +142,13 @@ namespace Gloria
 
     void GloriaD3D12BuddyAllocator::CleanUpAllocations()
     {
+        for (int32_t i = 0; i < this->DeferredDelectionQueue.size(); i++)
+        {
+            const GloriaD3D12BuddyBlockData& Block = this->DeferredDelectionQueue[i];
+            this->DeallocateInternal(Block);
+        }
 
+        this->DeferredDelectionQueue.clear();
     }
 
     uint32_t GloriaD3D12BuddyAllocator::GetSizeToAllocate(uint32_t size, uint32_t aligment)
@@ -231,6 +237,7 @@ namespace Gloria
             delete block.PlacedResource;
         }
     }
+
     void GloriaD3D12BuddyAllocator::DeallocateBlock(uint32_t offset, uint32_t order)
     {
         // Get buddy block

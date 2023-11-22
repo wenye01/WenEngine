@@ -77,7 +77,7 @@ namespace Gloria
         GloriaD3D12Resource* pBackResource = nullptr;
         ID3D12Heap* pBackHeap = nullptr;
 
-    private:
+    private: // 辅助函数
         uint32_t Size2UnitSize(uint32_t size) const
         {// 向上对齐
             return (uint32_t)(size + this->MinBlockSize - 1) / this->MinBlockSize;

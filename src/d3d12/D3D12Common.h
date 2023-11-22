@@ -3,6 +3,7 @@
 #include "D3D12Device.h"
 #include "D3D12MemoryAllocator.h"
 
+// 外部调用
 namespace Gloria
 {
     class D3D12Common
