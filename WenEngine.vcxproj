@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\d3d12\D3D12Texture.cpp" />
     <ClCompile Include="src\d3d12\D3D12DescriptorCache.cpp" />
     <ClCompile Include="src\d3d12\D3D12HeapAllocator.cpp" />
     <ClCompile Include="src\d3d12\D3D12Swapchain.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\d3d12\D3D12Texture.h" />
     <ClInclude Include="src\d3d12\D3D12DescriptorCache.h" />
     <ClInclude Include="src\d3d12\D3D12HeapAllocator.h" />
     <ClInclude Include="src\d3d12\D3D12Swapchain.h" />

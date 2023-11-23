@@ -66,6 +66,9 @@
     <ClCompile Include="src\d3d12\D3D12HeapAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\d3d12\D3D12Texture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\windowsCommons\d3dx12.h">
@@ -123,6 +126,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\d3d12\D3D12HeapAllocator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\D3D12Texture.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
