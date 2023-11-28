@@ -21,10 +21,7 @@ namespace Gloria
         ThrowIfFailed(this->pD3D12Resource->Map(0, nullptr, &this->MappedBaseAddress));
     }
 
-    GloriaD3D12ResourceLocation::GloriaD3D12ResourceLocation()
-    {
-
-    }
+    GloriaD3D12ResourceLocation::GloriaD3D12ResourceLocation() { }
 
     GloriaD3D12ResourceLocation::~GloriaD3D12ResourceLocation()
     {

@@ -42,43 +42,43 @@ namespace Gloria
     }
 
     // render target
-    GloriaRenderTargetReosurceView::GloriaRenderTargetReosurceView(GloriaD3D12Device* device, const D3D12_RENDER_TARGET_VIEW_DESC& desc, ID3D12Resource* resource)
+    GloriaRenderTargetView::GloriaRenderTargetView(GloriaD3D12Device* device, const D3D12_RENDER_TARGET_VIEW_DESC& desc, ID3D12Resource* resource)
         :GloriaD3D12View(device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, resource)
     {
         this->CreateRenderTargetResourceView(desc);
     }
 
-    GloriaRenderTargetReosurceView::~GloriaRenderTargetReosurceView() { }
+    GloriaRenderTargetView::~GloriaRenderTargetView() { }
 
-    void GloriaRenderTargetReosurceView::CreateRenderTargetResourceView(const D3D12_RENDER_TARGET_VIEW_DESC& desc)
+    void GloriaRenderTargetView::CreateRenderTargetResourceView(const D3D12_RENDER_TARGET_VIEW_DESC& desc)
     {
         this->pDevice->GetDevice()->CreateRenderTargetView(this->Resource, &desc, this->HeapSlot.Handle);
     }
 
     // depth
-    GloriaDepthStencilReosurceView::GloriaDepthStencilReosurceView(GloriaD3D12Device* device, const D3D12_DEPTH_STENCIL_VIEW_DESC& desc, ID3D12Resource* resource)
+    GloriaDepthStencilView::GloriaDepthStencilView(GloriaD3D12Device* device, const D3D12_DEPTH_STENCIL_VIEW_DESC& desc, ID3D12Resource* resource)
         :GloriaD3D12View(device, D3D12_DESCRIPTOR_HEAP_TYPE_DSV, resource)
     {
         this->CreateDepthStencilResourceView(desc);
     }
 
-    GloriaDepthStencilReosurceView::~GloriaDepthStencilReosurceView() { }
+    GloriaDepthStencilView::~GloriaDepthStencilView() { }
 
-    void GloriaDepthStencilReosurceView::CreateDepthStencilResourceView(const D3D12_DEPTH_STENCIL_VIEW_DESC& desc)
+    void GloriaDepthStencilView::CreateDepthStencilResourceView(const D3D12_DEPTH_STENCIL_VIEW_DESC& desc)
     {
         this->pDevice->GetDevice()->CreateDepthStencilView(this->Resource, &desc, this->HeapSlot.Handle);
     }
 
     // unorder
-    GloriaUnorderedAccessReosurceView::GloriaUnorderedAccessReosurceView(GloriaD3D12Device* device, const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc, ID3D12Resource* resource)
+    GloriaUnorderedAccessView::GloriaUnorderedAccessView(GloriaD3D12Device* device, const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc, ID3D12Resource* resource)
         :GloriaD3D12View(device, D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, resource)
     {
         this->CreateUnorderedAccessResourceView(desc);
     }
 
-    GloriaUnorderedAccessReosurceView::~GloriaUnorderedAccessReosurceView() { }
+    GloriaUnorderedAccessView::~GloriaUnorderedAccessView() { }
 
-    void GloriaUnorderedAccessReosurceView::CreateUnorderedAccessResourceView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc)
+    void GloriaUnorderedAccessView::CreateUnorderedAccessResourceView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc)
     {
         this->pDevice->GetDevice()->CreateUnorderedAccessView(this->Resource, nullptr, &desc, this->HeapSlot.Handle);
     }

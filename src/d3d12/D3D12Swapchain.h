@@ -1,6 +1,7 @@
 #pragma once
 
 #include "D3D12Utils.h"
+#include "D3D12Texture.h"
 
 namespace Gloria
 {
@@ -34,8 +35,11 @@ namespace Gloria
         int ViewportHeight = 0;
 
         static const int SwapchainBufferCount = 2;
+        int CurentBackBuffer = 0;
 
         GloriaD3D12SwapchainInfoData SwapchainInfoData;
 
+        GloriaD3DTextureRef RenderTargetTextures[SwapchainBufferCount];
+        GloriaD3DTextureRef DepthStencilTexture = nullptr;
     };
 }

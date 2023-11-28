@@ -40,32 +40,32 @@ namespace Gloria
         void CreateShaderResourceView(const D3D12_SHADER_RESOURCE_VIEW_DESC& desc);
     };
     //
-    class GloriaRenderTargetReosurceView :public GloriaD3D12View
+    class GloriaRenderTargetView :public GloriaD3D12View
     {
     public:
-        GloriaRenderTargetReosurceView(GloriaD3D12Device* device, const D3D12_RENDER_TARGET_VIEW_DESC& desc, ID3D12Resource* resource);
+        GloriaRenderTargetView(GloriaD3D12Device* device, const D3D12_RENDER_TARGET_VIEW_DESC& desc, ID3D12Resource* resource);
 
-        virtual ~GloriaRenderTargetReosurceView();
+        virtual ~GloriaRenderTargetView();
     private:
         void CreateRenderTargetResourceView(const D3D12_RENDER_TARGET_VIEW_DESC& desc);
     };
     //
-    class GloriaDepthStencilReosurceView :public GloriaD3D12View
+    class GloriaDepthStencilView :public GloriaD3D12View
     {
     public:
-        GloriaDepthStencilReosurceView(GloriaD3D12Device* device, const D3D12_DEPTH_STENCIL_VIEW_DESC& desc, ID3D12Resource* resource);
+        GloriaDepthStencilView(GloriaD3D12Device* device, const D3D12_DEPTH_STENCIL_VIEW_DESC& desc, ID3D12Resource* resource);
 
-        virtual ~GloriaDepthStencilReosurceView();
+        virtual ~GloriaDepthStencilView();
     private:
         void CreateDepthStencilResourceView(const D3D12_DEPTH_STENCIL_VIEW_DESC& desc);
     };
     //
-    class GloriaUnorderedAccessReosurceView :public GloriaD3D12View
+    class GloriaUnorderedAccessView :public GloriaD3D12View
     {
     public:
-        GloriaUnorderedAccessReosurceView(GloriaD3D12Device* device, const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc, ID3D12Resource* resource);
+        GloriaUnorderedAccessView(GloriaD3D12Device* device, const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc, ID3D12Resource* resource);
 
-        virtual ~GloriaUnorderedAccessReosurceView();
+        virtual ~GloriaUnorderedAccessView();
     private:
         void CreateUnorderedAccessResourceView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc);
     };
