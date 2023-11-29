@@ -2,6 +2,7 @@
 
 #include "D3D12MemoryAllocator.h"
 #include "D3D12HeapAllocator.h"
+#include "D3D12CommandContext.h"
 
 namespace Gloria
 {
@@ -15,6 +16,12 @@ namespace Gloria
     public:
         ID3D12Device* GetDevice() { return this->pDevice.Get(); }
 
+        GloriaD3D12CommandContext* GetCommanContext() { return this->CommandContext.get(); }
+
+        ID3D12CommandQueue* GetCommandQueue() { return this->CommandContext->GetCommandQueue(); }
+
+        ID3D12GraphicsCommandList* GetCommandList() { return this->CommandContext->GetCommandGraphicsList(); }
+
         GloriaD3D12UploadBufferAllocator* GetUploadBufferAllocator() { return this->UploadBufferAllocator.get(); }
 
         GloriaD3D12DefaultBufferAllocator* GetDefaultBufferAllocator() { return this->DefaultBufferAllocator.get(); }
@@ -27,6 +34,8 @@ namespace Gloria
 
     private:
         Microsoft::WRL::ComPtr<ID3D12Device> pDevice = nullptr;
+
+        std::unique_ptr<GloriaD3D12CommandContext> CommandContext = nullptr;
 
         std::unique_ptr<GloriaD3D12UploadBufferAllocator> UploadBufferAllocator = nullptr;
         std::unique_ptr<GloriaD3D12DefaultBufferAllocator> DefaultBufferAllocator = nullptr;

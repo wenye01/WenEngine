@@ -21,12 +21,32 @@ namespace Gloria
     class GloriaD3D12Swapchain
     {
     public:
-        GloriaD3D12Swapchain();
+        GloriaD3D12Swapchain(D3D12Common* pCommon);
 
         ~GloriaD3D12Swapchain();
 
+    public:
+        void OnResize(int width, int height);
+
+        void GetViewport(D3D12_VIEWPORT& OutViewPort, D3D12_RECT& OutRect);
+
+        void Present();
+
+        GloriaD3D12Resource* GetCurrentBackBuffer() const;
+
+        GloriaRenderTargetView* GetRenderTargerView() const;
+
+        float* GetCurrentBackBufferClearColor() const;
+
+        GloriaDepthStencilView* GetDepthStencilView() const;
+
+        GloriaShaderReosurceView* GetShaderResourceView() const;
+
+        GloriaD3D12SwapchainInfoData GetSwapchainInfo() const;
+
     private:
         void Initialize();
+
     private:
         D3D12Common* pCommon;
 

@@ -3,7 +3,8 @@
 
 namespace Gloria
 {
-    GloriaD3D12Swapchain::GloriaD3D12Swapchain()
+    GloriaD3D12Swapchain::GloriaD3D12Swapchain(D3D12Common* common)
+        :pCommon(common)
     {
         this->Initialize();
     }
@@ -33,6 +34,13 @@ namespace Gloria
             desc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
         }
 
-        Microsoft::WRL::ComPtr<ID3D12CommandQueue> CommandQueue = this->pCommon->GetDevice();
+        Microsoft::WRL::ComPtr<ID3D12CommandQueue> CommandQueue = this->pCommon->GetDevice()->GetCommandQueue();
+
+        ThrowIfFailed(this->pCommon->GetDxgiFactory()->CreateSwapChain(CommandQueue.Get(), &desc, this->SwapChain.GetAddressOf()));
+    }
+
+    void GloriaD3D12Swapchain::OnResize(int width, int height)
+    {
+
     }
 }

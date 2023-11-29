@@ -66,6 +66,10 @@ namespace Gloria
     };
     typedef std::shared_ptr<GloriaRWStructedResourceview> GloriaRWStructedResourceviewRef;
 
+    class GloriaConstantBuffer :public GloriaD3D12Buffer
+    { };
+    typedef std::shared_ptr<GloriaConstantBuffer> GloriaConstantBufferRef;
+
     class GloriaVertexBuffer :public GloriaD3D12Buffer
     { };
     typedef std::shared_ptr<GloriaVertexBuffer> GloriaVertexBufferRef;
