@@ -32,17 +32,35 @@ namespace Gloria
 
         void Present();
 
-        GloriaD3D12Resource* GetCurrentBackBuffer() const;
+        GloriaD3D12Resource* GetCurrentBackBuffer() const
+        {
+            return this->RenderTargetTextures[this->CurentBackBuffer]->GetResource();
+        }
 
-        GloriaRenderTargetView* GetRenderTargerView() const;
+        GloriaRenderTargetView* GetRenderTargerView() const
+        {
+            return this->RenderTargetTextures[this->CurentBackBuffer]->GetRTV();
+        }
 
-        float* GetCurrentBackBufferClearColor() const;
+        float* GetCurrentBackBufferClearColor() const
+        {
+            return this->RenderTargetTextures[this->CurentBackBuffer]->GetRTVClearValuePtr();
+        }
 
-        GloriaDepthStencilView* GetDepthStencilView() const;
+        GloriaDepthStencilView* GetDepthStencilView() const
+        {
+            return this->RenderTargetTextures[this->CurentBackBuffer]->GetDSV();
+        }
 
-        GloriaShaderReosurceView* GetShaderResourceView() const;
+        GloriaShaderReosurceView* GetShaderResourceView() const
+        {
+            return this->RenderTargetTextures[this->CurentBackBuffer]->GetSRV();
+        }
 
-        GloriaD3D12SwapchainInfoData GetSwapchainInfo() const;
+        GloriaD3D12SwapchainInfoData GetSwapchainInfo() const
+        {
+            return this->SwapchainInfoData;
+        }
 
     private:
         void Initialize();
@@ -59,7 +77,7 @@ namespace Gloria
 
         GloriaD3D12SwapchainInfoData SwapchainInfoData;
 
-        GloriaD3DTextureRef RenderTargetTextures[SwapchainBufferCount];
-        GloriaD3DTextureRef DepthStencilTexture = nullptr;
+        GloriaD3D12TextureRef RenderTargetTextures[SwapchainBufferCount];
+        GloriaD3D12TextureRef DepthStencilTexture = nullptr;
     };
 }

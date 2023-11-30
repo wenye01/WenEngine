@@ -3,6 +3,7 @@
 #include "D3D12Resource.h"
 #include "D3D12View.h"
 #include <DirectXMath.h>
+#include "../windowsCommons/d3dx12.h"
 
 namespace Gloria
 {
@@ -89,5 +90,43 @@ namespace Gloria
 
         XMFLOAT4 RTVClearValue;
     };
-    typedef std::shared_ptr <GloriaD3D12Texture> GloriaD3DTextureRef;
+    typedef std::shared_ptr <GloriaD3D12Texture> GloriaD3D12TextureRef;
+
+    enum class TextureType
+    {
+        Texture_2D,
+        Texture_CUBE,
+        Texture_3D,
+    };
+
+    struct GloriaTextureInfo
+    {
+        TextureType type;
+        D3D12_RESOURCE_DIMENSION dimension;
+        size_t width;
+        size_t height;
+        size_t depth;
+        size_t arraySize;
+        size_t mipCount;
+        
+        DXGI_FORMAT format;
+
+        D3D12_RESOURCE_STATES initState = D3D12_RESOURCE_STATE_GENERIC_READ;
+
+        DXGI_FORMAT srvFormat = DXGI_FORMAT_UNKNOWN;
+        DXGI_FORMAT rtvFormat = DXGI_FORMAT_UNKNOWN;
+        DXGI_FORMAT dsvFormat = DXGI_FORMAT_UNKNOWN;
+        DXGI_FORMAT uavFormat = DXGI_FORMAT_UNKNOWN;
+    };
+
+    enum TextureCreateFlags
+    {
+        TEXTURE_CREATE_NONE         = 0,
+        TEXTURE_CREATE_RTV          = 1 << 0,
+        TEXTURE_CREATE_RTV_CUBE     = 1 << 1,
+        TEXTURE_CREATE_DSV          = 1 << 2,
+        TEXTURE_CREATE_DSV_CUBE     = 1 << 3,
+        TEXTURE_CREATE_SRV          = 1 << 4,
+        TEXTURE_CREATE_UAV          = 1 << 5,
+    };
 }

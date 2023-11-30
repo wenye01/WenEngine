@@ -31,35 +31,37 @@ namespace Gloria
 
         void Present();
 
-        void ResizeSwapChain();
+        void ResizeSwapChain(int width, int height);
 
-        void TransitionResource();
+        void TransitionResource(GloriaD3D12Resource*resource,D3D12_RESOURCE_STATES state);
 
-        void CopyResource();
+        void CopyResource(GloriaD3D12Resource* DstResource,GloriaD3D12Resource* SrcResource);
 
-        void CopyBufferRegion();
+        void CopyBufferRegion(GloriaD3D12Resource* DstResource,UINT64 DstOffset,GloriaD3D12Resource* SrcResource,UINT64 srcOffset,UINT64 Size);
 
-        void CopyTextureRegion();
+        void CopyTextureRegion(D3D12_TEXTURE_COPY_LOCATION* Dst, UINT DstX,UINT DstY,UINT DstZ,const D3D12_TEXTURE_COPY_LOCATION *Src,const D3D12_BOX* SrcBox);
 
-        GloriaConstantBufferRef CreateConstantnBuffer();
+        GloriaConstantBufferRef CreateConstantnBuffer(const void* Contents,uint32_t Size);
 
-        GloriaStructedBufferRef CreateStructedBuffer();
+        GloriaStructedBufferRef CreateStructedBuffer(const void* Contents, uint32_t ElementSize, uint32_t ElementCount);
 
-        GloriaRWStructedResourceviewRef CreteRWStructedBuffer();
+        GloriaRWStructedResourceviewRef CreteRWStructedBuffer(uint32_t ElementSize, uint32_t ElementCount);
 
-        GloriaVertexBufferRef CreateVertexBuffer();
+        GloriaVertexBufferRef CreateVertexBuffer(const void* Contents, uint32_t Size);
 
-        GloriaIndexBufferRef CreateIndexBuffer();
+        GloriaIndexBufferRef CreateIndexBuffer(const void* Contents, uint32_t Size);
 
-        GloriaReadBackBufferRef CreateReadBackBuffer();
+        GloriaReadBackBufferRef CreateReadBackBuffer(uint32_t Size);
 
-        GloriaD3DTextureRef CreateTexture();
+        GloriaD3D12TextureRef CreateTexture(const GloriaTextureInfo& textureInfo, uint32_t createFlag, XMFLOAT4 rtvClratValue = XMFLOAT4(0.f, 0.f, 0.f, 0.f));
 
-        void UploadTextureData();
+        GloriaD3D12TextureRef CreateTexture(Microsoft::WRL::ComPtr<ID3D12Resource> resource, GloriaTextureInfo info, uint32_t createFlag);
 
-        void SetVertexBuffer();
+        void UploadTextureData(GloriaD3D12TextureRef texture, const std::vector<D3D12_SUBRESOURCE_DATA>& initData);
 
-        void SetIndexBuffer();
+        void SetVertexBuffer(const GloriaVertexBufferRef& vertexBuffer, UINT offset, UINT stride, UINT size);
+
+        void SetIndexBuffer(const GloriaIndexBufferRef& indexBuffer, UINT offset, DXGI_FORMAT format, UINT size);
 
         void EndFrame();
 
@@ -88,6 +90,7 @@ namespace Gloria
 
         UINT GetSupportMSAAQuality(DXGI_FORMAT BackBufferFormat);
 
+        void CreateDefaultBuffer(uint32_t Size, uint32_t Alignment, D3D12_RESOURCE_FLAGS Flags, GloriaD3D12ResourceLocation ResourceLocation);
     private:
         std::unique_ptr<GloriaD3D12Device> pDevice = nullptr;
 
