@@ -28,7 +28,7 @@ namespace Gloria
             return this->SRV.get();
         }
 
-        void SetSRV(std::unique_ptr<GloriaShaderReosurceView>& srv)
+        void SetSRV(std::unique_ptr<GloriaShaderReosurceView> srv)
         {
             this->SRV = std::move(srv);
         }

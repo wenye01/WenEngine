@@ -91,6 +91,12 @@ namespace Gloria
         UINT GetSupportMSAAQuality(DXGI_FORMAT BackBufferFormat);
 
         void CreateDefaultBuffer(uint32_t Size, uint32_t Alignment, D3D12_RESOURCE_FLAGS Flags, GloriaD3D12ResourceLocation ResourceLocation);
+
+        void CreateAndInitDefaultBuffer(const void* Contents, uint32_t Size, uint32_t Aligment, GloriaD3D12ResourceLocation& ResourceLocation);
+
+        GloriaD3D12TextureRef CreateTextureResource(const GloriaTextureInfo& TextureInfo, uint32_t CreateFlags, XMFLOAT4 RTVClearValue);
+
+        void CreateTextureViews(GloriaD3D12TextureRef TextureRef, const GloriaTextureInfo& TextureInfo, uint32_t CreateFlags);
     private:
         std::unique_ptr<GloriaD3D12Device> pDevice = nullptr;
 

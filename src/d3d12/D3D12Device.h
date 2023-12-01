@@ -14,7 +14,7 @@ namespace Gloria
         ~GloriaD3D12Device();
 
     public:
-        ID3D12Device* GetDevice() { return this->pDevice.Get(); }
+        ID3D12Device* GetD3DDevice() { return this->pDevice.Get(); }
 
         GloriaD3D12CommandContext* GetCommanContext() { return this->CommandContext.get(); }
 

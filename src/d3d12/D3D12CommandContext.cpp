@@ -13,18 +13,18 @@ namespace Gloria
 
     void GloriaD3D12CommandContext::CreateCommandContext()
     {
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&this->Fence)));
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&this->Fence)));
 
         D3D12_COMMAND_QUEUE_DESC desc;
         {
             desc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
             desc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
         }
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateCommandQueue(&desc, IID_PPV_ARGS(&this->CommandQueue)));
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateCommandQueue(&desc, IID_PPV_ARGS(&this->CommandQueue)));
 
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(this->CommandListAllocator.GetAddressOf())));
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(this->CommandListAllocator.GetAddressOf())));
 
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT,
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT,
             this->CommandListAllocator.Get(),
             nullptr, IID_PPV_ARGS(this->CommandGraphiceList.GetAddressOf())));
 

@@ -38,7 +38,7 @@ namespace Gloria
 
     void GloriaShaderReosurceView::CreateShaderResourceView(const D3D12_SHADER_RESOURCE_VIEW_DESC& desc)
     {
-        this->pDevice->GetDevice()->CreateShaderResourceView(this->Resource, &desc, this->HeapSlot.Handle);
+        this->pDevice->GetD3DDevice()->CreateShaderResourceView(this->Resource, &desc, this->HeapSlot.Handle);
     }
 
     // render target
@@ -52,7 +52,7 @@ namespace Gloria
 
     void GloriaRenderTargetView::CreateRenderTargetResourceView(const D3D12_RENDER_TARGET_VIEW_DESC& desc)
     {
-        this->pDevice->GetDevice()->CreateRenderTargetView(this->Resource, &desc, this->HeapSlot.Handle);
+        this->pDevice->GetD3DDevice()->CreateRenderTargetView(this->Resource, &desc, this->HeapSlot.Handle);
     }
 
     // depth
@@ -66,7 +66,7 @@ namespace Gloria
 
     void GloriaDepthStencilView::CreateDepthStencilResourceView(const D3D12_DEPTH_STENCIL_VIEW_DESC& desc)
     {
-        this->pDevice->GetDevice()->CreateDepthStencilView(this->Resource, &desc, this->HeapSlot.Handle);
+        this->pDevice->GetD3DDevice()->CreateDepthStencilView(this->Resource, &desc, this->HeapSlot.Handle);
     }
 
     // unorder
@@ -80,6 +80,6 @@ namespace Gloria
 
     void GloriaUnorderedAccessView::CreateUnorderedAccessResourceView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& desc)
     {
-        this->pDevice->GetDevice()->CreateUnorderedAccessView(this->Resource, nullptr, &desc, this->HeapSlot.Handle);
+        this->pDevice->GetD3DDevice()->CreateUnorderedAccessView(this->Resource, nullptr, &desc, this->HeapSlot.Handle);
     }
 }

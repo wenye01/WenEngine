@@ -22,10 +22,10 @@ namespace Gloria
             desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
         }
 
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&this->CacheViewDescriptorHeap)));
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&this->CacheViewDescriptorHeap)));
         SetDebugName(this->CacheViewDescriptorHeap.Get(), L"CacheViewDescriptorHeap");
 
-        this->ViewDescriptorSize = this->pDevice->GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+        this->ViewDescriptorSize = this->pDevice->GetD3DDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
     }
 
     CD3DX12_GPU_DESCRIPTOR_HANDLE GloriaD3D12DescriptorCache::AppendViewDescriptor(const std::vector<D3D12_CPU_DESCRIPTOR_HANDLE>& srcDescriptor)
@@ -33,7 +33,7 @@ namespace Gloria
         uint32_t SlotSize = (uint32_t)srcDescriptor.size();
 
         auto CpuDescriptorHandle = CD3DX12_CPU_DESCRIPTOR_HANDLE(CacheViewDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), ViewDescriptorOffset, ViewDescriptorSize);
-        this->pDevice->GetDevice()->CopyDescriptors(1, &CpuDescriptorHandle, &SlotSize, SlotSize, srcDescriptor.data(), nullptr, D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+        this->pDevice->GetD3DDevice()->CopyDescriptors(1, &CpuDescriptorHandle, &SlotSize, SlotSize, srcDescriptor.data(), nullptr, D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
         auto GpuDescriptorHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(CacheViewDescriptorHeap->GetGPUDescriptorHandleForHeapStart(), ViewDescriptorOffset, ViewDescriptorSize);
 
@@ -56,10 +56,10 @@ namespace Gloria
             desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
         }
 
-        ThrowIfFailed(this->pDevice->GetDevice()->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&this->CacheRTVDescriptorHeap)));
+        ThrowIfFailed(this->pDevice->GetD3DDevice()->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&this->CacheRTVDescriptorHeap)));
         SetDebugName(this->CacheRTVDescriptorHeap.Get(), L"CacheRTVDescriptorHeap");
 
-        this->RTVDescriptorSize = this->pDevice->GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+        this->RTVDescriptorSize = this->pDevice->GetD3DDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 
     }
 
@@ -71,7 +71,7 @@ namespace Gloria
         uint32_t SlotSize = (uint32_t)RtvDescriptors.size();
 
         auto CpuDescriptorHandle = CD3DX12_CPU_DESCRIPTOR_HANDLE(CacheRTVDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), RTVDescriptorOffset, RTVDescriptorSize);
-        this->pDevice->GetDevice()->CopyDescriptors(1, &CpuDescriptorHandle, &SlotSize, SlotSize, RtvDescriptors.data(), nullptr, D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+        this->pDevice->GetD3DDevice()->CopyDescriptors(1, &CpuDescriptorHandle, &SlotSize, SlotSize, RtvDescriptors.data(), nullptr, D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 
 
         OutGpuHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(CacheRTVDescriptorHeap->GetGPUDescriptorHandleForHeapStart(), RTVDescriptorOffset, RTVDescriptorSize);
