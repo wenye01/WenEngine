@@ -75,6 +75,18 @@
     <ClCompile Include="src\render\Render.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\render\Resource.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Textures.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\DDSTextureLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\WICTextureLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\windowsCommons\d3dx12.h">
@@ -87,9 +99,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Engine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\common\structures.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\RootSignatures.h">
@@ -141,6 +150,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\render\Render.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\Textures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\DDSTextureLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\WICTextureLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\DDS.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

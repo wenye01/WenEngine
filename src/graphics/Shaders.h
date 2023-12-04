@@ -1,29 +1,22 @@
 #pragma once
 
-#include <d3d12.h>	
 #include <wrl/client.h>
-#include <tchar.h>
-#include <vector>
-#include <functional>
-#include "../error.hpp"
+
+#include "../d3d12/D3D12Common.h"
 
 namespace Gloria
 {
-    using namespace Microsoft;
-    using namespace Microsoft::WRL;
 
-    class ForwardShaders
+    class Shader
     {
     public:
-        void AddInputLayout(std::function<D3D12_INPUT_ELEMENT_DESC()> layout);
-        void CompileVertexShader(LPCWSTR filename, LPCSTR entrypoint);
-        void CompilePixelShader (LPCWSTR filename, LPCSTR entrypoint);
+        Shader();
+        ~Shader();
 
         ID3DBlob* GetVertexShader();
         ID3DBlob* GetPixelShader();
     private:
-        std::vector<D3D12_INPUT_ELEMENT_DESC> aInputLayout;
-        ComPtr<ID3DBlob> pIVertexShader;
-        ComPtr<ID3DBlob> pIPixelShader;
+        Microsoft::WRL::ComPtr<ID3DBlob> CompileShader()
+
     };
 }
