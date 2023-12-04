@@ -5,7 +5,6 @@
 
 #include "Engine.h"
 
-
 namespace Gloria
 {
     LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)

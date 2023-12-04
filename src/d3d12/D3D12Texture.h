@@ -21,7 +21,7 @@ namespace Gloria
             return this->ResourceLocation.UnderlyingResource->pD3D12Resource.Get();
         }
 
-        void SetREVClearValue(XMFLOAT4 rtvClearValue)
+        void SetRTVClearValue(XMFLOAT4 rtvClearValue)
         {
             this->RTVClearValue = rtvClearValue;
         }

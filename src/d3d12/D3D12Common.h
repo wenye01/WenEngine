@@ -1,5 +1,6 @@
 #pragma once
 
+#include "D3D12Utils.h"
 #include "D3D12Device.h"
 #include "D3D12MemoryAllocator.h"
 #include "D3D12Swapchain.h"
@@ -78,15 +79,15 @@ namespace Gloria
 
         const GloriaD3D12SwapchainInfoData& GetSwapChainInfo()
         {
-
+            return this->SwapChainInfo;
         }
 
         IDXGIFactory4* GetDxgiFactory()
         {
-
+            return this->DxgiFactory.Get();
         }
     private:
-        void LogAdapters();
+        void LogAdapters(); //TODO
 
         UINT GetSupportMSAAQuality(DXGI_FORMAT BackBufferFormat);
 
@@ -104,7 +105,7 @@ namespace Gloria
 
         GloriaD3D12SwapchainInfoData SwapChainInfo;
 
-        Microsoft::WRL::ComPtr<IDXGIFactory> DxgiFactory = nullptr;
+        Microsoft::WRL::ComPtr<IDXGIFactory4> DxgiFactory = nullptr;
     };
 }
 

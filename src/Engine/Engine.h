@@ -4,6 +4,8 @@
 
 #include "GameTimer.h"
 
+#include "../d3d12/D3D12Common.h"
+
 namespace Gloria
 {
 

@@ -22,8 +22,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCm
         return 0;
     }
 
-    catch ()
+    catch (GloriaException& e)
     {
-        
+        MessageBox(nullptr, e.ToString().c_str(), L"ERROR", MB_OK);
+        return 0;
     }
 }
