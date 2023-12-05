@@ -132,7 +132,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\util\DDSTextureLoader.cpp" />
     <ClCompile Include="src\render\Resource.cpp" />
     <ClCompile Include="src\render\Render.cpp" />
     <ClCompile Include="src\d3d12\D3D12CommandContext.cpp" />
@@ -155,11 +154,9 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
     <ClCompile Include="src\render\Textures.cpp" />
-    <ClCompile Include="src\util\WICTextureLoader.cpp" />
+    <ClCompile Include="src\windowsCommons\WICTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\util\DDS.h" />
-    <ClInclude Include="src\util\DDSTextureLoader.h" />
     <ClInclude Include="src\render\Resource.h" />
     <ClInclude Include="src\render\Render.h" />
     <ClInclude Include="src\d3d12\D3D12CommandContext.h" />
@@ -180,10 +177,12 @@
     <ClInclude Include="src\Engine\Engine.h" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\graphics\Shaders.h" />
+    <ClInclude Include="src\render\TextureInfo.h" />
+    <ClInclude Include="src\util\util.h" />
     <ClInclude Include="src\windowsCommons\d3dx12.h" />
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h" />
     <ClInclude Include="src\render\Textures.h" />
-    <ClInclude Include="src\util\WICTextureLoader.h" />
+    <ClInclude Include="src\windowsCommons\WICTextureLoader12.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\cube.hlsl">
