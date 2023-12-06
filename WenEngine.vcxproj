@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\PipelineStateObject.cpp" />
+    <ClCompile Include="src\render\Shaders.cpp" />
     <ClCompile Include="src\render\Resource.cpp" />
     <ClCompile Include="src\render\Render.cpp" />
     <ClCompile Include="src\d3d12\D3D12CommandContext.cpp" />
@@ -147,16 +149,15 @@
     <ClCompile Include="src\d3d12\D3D12Utils.cpp" />
     <ClCompile Include="src\Engine\GameTimer.cpp" />
     <ClCompile Include="src\d3d12\D3D12Resource.cpp" />
-    <ClCompile Include="src\graphics\PipelineStates.cpp" />
-    <ClCompile Include="src\graphics\RootSignatures.cpp" />
     <ClCompile Include="src\Engine\Engine.cpp" />
-    <ClCompile Include="src\graphics\Shaders.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
     <ClCompile Include="src\render\Textures.cpp" />
     <ClCompile Include="src\windowsCommons\WICTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\PipelineStateObject.h" />
+    <ClInclude Include="src\render\Shaders.h" />
     <ClInclude Include="src\render\Resource.h" />
     <ClInclude Include="src\render\Render.h" />
     <ClInclude Include="src\d3d12\D3D12CommandContext.h" />
@@ -172,11 +173,8 @@
     <ClInclude Include="src\d3d12\D3D12Utils.h" />
     <ClInclude Include="src\Engine\GameTimer.h" />
     <ClInclude Include="src\d3d12\D3D12Resource.h" />
-    <ClInclude Include="src\graphics\PipelineStates.h" />
-    <ClInclude Include="src\graphics\RootSignatures.h" />
     <ClInclude Include="src\Engine\Engine.h" />
     <ClInclude Include="src\error.hpp" />
-    <ClInclude Include="src\graphics\Shaders.h" />
     <ClInclude Include="src\render\TextureInfo.h" />
     <ClInclude Include="src\util\util.h" />
     <ClInclude Include="src\windowsCommons\d3dx12.h" />

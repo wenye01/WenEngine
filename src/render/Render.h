@@ -9,7 +9,13 @@ namespace Gloria
     class Render
     {
     public:
+        Render();
 
+        ~Render();
+
+        void Initialize();
+
+        void Draw();
     private:
     };
 }

@@ -43,6 +43,14 @@ namespace Gloria
     bool GloriaEngine::Initialize()
     {
         this->InitWindow();
+
+        this->pCommon = std::make_unique<D3D12Common>();
+
+        this->pRender = std::make_unique<Render>();
+
+
+        this->pRender->Initialize();
+
         return true;
     }
 
@@ -172,9 +180,9 @@ namespace Gloria
         }
     }
 
-    void Update(const GameTimer& gametimer)
+    void GloriaEngine::Update(const GameTimer& gametimer)
     {
-
+        this->pRender->Draw();
     }
 
     void EndFrame(const GameTimer& gametimer)

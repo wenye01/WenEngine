@@ -5,6 +5,7 @@
 #include "GameTimer.h"
 
 #include "../d3d12/D3D12Common.h"
+#include "../render/Render.h"
 
 namespace Gloria
 {
@@ -61,6 +62,10 @@ namespace Gloria
         int WindowHeight = 720;
 
         GameTimer Timer;
+
+        std::unique_ptr<D3D12Common> pCommon;
+
+        std::unique_ptr<Render> pRender;
     };
 }
 

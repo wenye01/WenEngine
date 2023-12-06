@@ -10,12 +10,13 @@ namespace Gloria
     class Texture
     {
     public:
-        Texture();
+        Texture(std::wstring filepath, bool isSRGB);
 
-        ~Texture();
+        ~Texture() = default;
 
-        void LoadTextureFromFile(std::wstring filepath);
+        void LoadTextureFromFile(D3D12Common* common);
 
+        void CreateTexture(D3D12Common* common);
     private:
         void LoadDDSTexture(GloriaD3D12Device* device);
 
@@ -26,8 +27,10 @@ namespace Gloria
 
         std::wstring filepath;
 
-        TextureResource texture;
+        bool SRGB;
 
-        bool SRBG;
+        TextureResource textureResource;
+
+        GloriaD3D12TextureRef texture;
     };
 }

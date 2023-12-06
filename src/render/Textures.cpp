@@ -6,25 +6,38 @@
 
 namespace Gloria
 {
-    void Texture::LoadTextureFromFile(std::wstring filepath)
+    Texture::Texture(std::wstring filepath, bool isSRGB)
+        :filepath(filepath), SRGB(isSRGB)
+    {}
+
+    void Texture::LoadTextureFromFile(D3D12Common* common)
     {
-        auto extension = Util::GetFileExrension(filepath);
+        auto extension = Util::GetFileExrension(this->filepath);
 
         if (extension == L"dds")
         {
-            this->LoadDDSTexture()
+            this->LoadDDSTexture(common->GetDevice());
         }
         else if (extension == L"png" || extension == L"jpg")
         {
-
+            this->LoadWICTexture(common->GetDevice());
         }
+    }
+
+    void Texture::CreateTexture(D3D12Common* common)
+    {
+        auto cmdlist = common->GetDevice()->GetCommandList();
+
+        texture = common->CreateTexture(this->textureResource.TextureInfo, TEXTURE_CREATE_SRV);
+
+        common->UploadTextureData(texture, this->textureResource.Data);
     }
 
     void Texture::LoadDDSTexture(GloriaD3D12Device* device)
     {
         ThrowIfFailed(DirectX::LoadDDSTextureFromFile(
             device->GetD3DDevice(), this->filepath.c_str(),
-            texture.TextureData, texture.Data, texture.TextureInfo));
+            textureResource.TextureData, textureResource.Data, textureResource.TextureInfo));
     }
 
     void Texture::LoadWICTexture(GloriaD3D12Device* device)
@@ -32,7 +45,7 @@ namespace Gloria
         D3D12_SUBRESOURCE_DATA initData;
         
         DirectX::WIC_LOADER_FLAGS flags;
-        if (this->SRBG)
+        if (this->SRGB)
         {
             flags = DirectX::WIC_LOADER_FORCE_SRGB;
         }
@@ -43,8 +56,8 @@ namespace Gloria
 
         DirectX::LoadWICTextureFromFile(this->filepath.c_str(),
             D3D12_RESOURCE_FLAG_NONE, flags,
-            texture.TextureData, initData, texture.TextureInfo, 0u);
+            textureResource.TextureData, initData, textureResource.TextureInfo, 0u);
 
-        texture.Data.push_back(initData);
+        textureResource.Data.push_back(initData);
     }
 }
