@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\graphics\PipelineStateObject.cpp" />
+    <ClCompile Include="src\graphics\Shaders.cpp" />
     <ClCompile Include="src\render\Shaders.cpp" />
     <ClCompile Include="src\render\Resource.cpp" />
     <ClCompile Include="src\render\Render.cpp" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\PipelineStateObject.h" />
+    <ClInclude Include="src\graphics\Shaders.h" />
     <ClInclude Include="src\render\Shaders.h" />
     <ClInclude Include="src\render\Resource.h" />
     <ClInclude Include="src\render\Render.h" />

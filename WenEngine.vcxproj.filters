@@ -81,6 +81,9 @@
     <ClCompile Include="src\graphics\PipelineStateObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\Shaders.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\windowsCommons\d3dx12.h">
@@ -156,6 +159,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\PipelineStateObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Shaders.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
