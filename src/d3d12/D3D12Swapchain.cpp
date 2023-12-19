@@ -3,8 +3,8 @@
 
 namespace Gloria
 {
-    GloriaD3D12Swapchain::GloriaD3D12Swapchain(D3D12Common* common)
-        :pCommon(common)
+    GloriaD3D12Swapchain::GloriaD3D12Swapchain(D3D12Common* pCommon, const GloriaD3D12SwapchainInfoData& info, int width, int height)
+        :pCommon(pCommon), SwapchainInfoData(info), ViewportWidth(width), ViewportHeight(height)
     {
         this->Initialize();
     }

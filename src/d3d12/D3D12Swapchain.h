@@ -21,7 +21,7 @@ namespace Gloria
     class GloriaD3D12Swapchain
     {
     public:
-        GloriaD3D12Swapchain(D3D12Common* pCommon);
+        GloriaD3D12Swapchain(D3D12Common* pCommon, const GloriaD3D12SwapchainInfoData& info, int width, int height);
 
         ~GloriaD3D12Swapchain();
 

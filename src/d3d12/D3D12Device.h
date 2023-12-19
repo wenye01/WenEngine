@@ -6,6 +6,8 @@
 
 namespace Gloria
 {
+    class D3D12Common;
+
     class GloriaD3D12Device
     {
     public:
@@ -33,6 +35,7 @@ namespace Gloria
         void Initialize();
 
     private:
+
         Microsoft::WRL::ComPtr<ID3D12Device> pDevice = nullptr;
 
         std::unique_ptr<GloriaD3D12CommandContext> CommandContext = nullptr;

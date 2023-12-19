@@ -1,10 +1,15 @@
 #include "Shaders.h"
 
-#include <d3dcompiler.h>
+
 
 namespace Gloria
 {
-    Microsoft::WRL::ComPtr<ID3DBlob> Shader::CompileShader(const std::string& Entrypoint, const std::string& Target)
+    void Shader::Initialize()
+    {
+
+    }
+
+    Microsoft::WRL::ComPtr<ID3DBlob> Shader::CompileShader(const D3D_SHADER_MACRO* macro, const std::string& Entrypoint, const std::string& Target)
     {
         UINT compileFlags = 0;
 
@@ -15,7 +20,7 @@ namespace Gloria
         Microsoft::WRL::ComPtr<ID3DBlob> byte;
         Microsoft::WRL::ComPtr<ID3DBlob> error;
 
-        D3DCompileFromFile(this->filepath.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
+        D3DCompileFromFile(this->filepath.c_str(), macro, D3D_COMPILE_STANDARD_FILE_INCLUDE,
             Entrypoint.c_str(), Target.c_str(), compileFlags, 0, &byte, &error);
 
         return byte;

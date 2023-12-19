@@ -15,7 +15,7 @@ namespace Gloria
 
         ThrowIfFailed(CreateDXGIFactory2(flags, IID_PPV_ARGS(this->DxgiFactory.GetAddressOf())));
 
-        this->pDevice = std::make_unique<GloriaD3D12Device>(this);
+        this->pDevice = std::make_unique<GloriaD3D12Device>();
 
         {
             this->SwapChainInfo.hwnd = hwnd;
@@ -72,8 +72,9 @@ namespace Gloria
         D3D12_RESOURCE_STATES stateBefore = resource->CurrentState;
 
         if (stateBefore != stateAfter)
-        {
-            this->GetDevice()->GetCommandList()->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(resource->pD3D12Resource.Get(), D3D12_RESOURCE_STATE_COPY_DEST, D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER));
+        {// TODO :debug
+            auto hr = CD3DX12_RESOURCE_BARRIER::Transition(resource->pD3D12Resource.Get(), D3D12_RESOURCE_STATE_COPY_DEST, D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER);
+            this->GetDevice()->GetCommandList()->ResourceBarrier(1, &hr);
             resource->CurrentState = stateAfter;
         }
     }
@@ -200,10 +201,12 @@ namespace Gloria
 
         Microsoft::WRL::ComPtr<ID3D12Resource> resource;
 
+        auto heap_pro = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
+        auto resource_desc = CD3DX12_RESOURCE_DESC::Buffer(Size);
         HRESULT hr = this->pDevice->GetD3DDevice()->CreateCommittedResource(
-            &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK),
+            &heap_pro,
             D3D12_HEAP_FLAG_NONE,
-            &CD3DX12_RESOURCE_DESC::Buffer(Size),
+            &resource_desc,
             D3D12_RESOURCE_STATE_COPY_DEST,
             nullptr,
             IID_PPV_ARGS(&resource));
@@ -217,7 +220,7 @@ namespace Gloria
         return pReadBack;
     }
 
-    GloriaD3D12TextureRef D3D12Common::CreateTexture(const GloriaTextureInfo& textureInfo, uint32_t createFlag, XMFLOAT4 rtvClratValue = XMFLOAT4(0.f, 0.f, 0.f, 0.f))
+    GloriaD3D12TextureRef D3D12Common::CreateTexture(const GloriaTextureInfo& textureInfo, uint32_t createFlag, XMFLOAT4 rtvClratValue)
     {
         GloriaD3D12TextureRef pTexture = this->CreateTextureResource(textureInfo, createFlag, rtvClratValue);
 
@@ -453,9 +456,9 @@ namespace Gloria
                 ClearValue = CD3DX12_CLEAR_VALUE(DXGI_FORMAT_D24_UNORM_S8_UINT, Depth, Stencil);
                 pClearValue = &ClearValue;
             }
-
+            auto heap_pro = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
             this->GetDevice()->GetD3DDevice()->CreateCommittedResource(
-                &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
+                &heap_pro,
                 D3D12_HEAP_FLAG_NONE,
                 &desc,
                 TextureInfo.initState,

@@ -3,6 +3,7 @@
 namespace Gloria
 {
     GloriaD3D12Device::GloriaD3D12Device()
+
     {
         this->Initialize();
     }

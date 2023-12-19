@@ -87,7 +87,7 @@ namespace DirectX
         std::vector<D3D12_SUBRESOURCE_DATA>& subresources,
         Gloria::GloriaTextureInfo& info,
         size_t maxsize = 0,
-        bool SRGB,
+        bool SRGB = false,
         _Out_opt_ DDS_ALPHA_MODE* alphaMode = nullptr,
         _Out_opt_ bool* isCubeMap = nullptr);
 
@@ -99,7 +99,7 @@ namespace DirectX
         std::unique_ptr<uint8_t[]>& ddsData,
         std::vector<D3D12_SUBRESOURCE_DATA>& subresources,
         Gloria::GloriaTextureInfo& info,
-        bool SRGB,
+        bool SRGB = false,
         _Out_opt_ DDS_ALPHA_MODE* alphaMode = nullptr,
         _Out_opt_ bool* isCubeMap = nullptr);
 }

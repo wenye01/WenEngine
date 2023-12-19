@@ -78,10 +78,25 @@
     <ClCompile Include="src\render\Shaders.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\PipelineStateObject.cpp">
+    <ClCompile Include="src\gui\imgui\imgui.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Shaders.cpp">
+    <ClCompile Include="src\gui\imgui\imgui_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\imgui\imgui_draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\imgui\imgui_impl_dx12.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\imgui\imgui_impl_win32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\imgui\imgui_tables.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\imgui\imgui_widgets.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,10 +173,28 @@
     <ClInclude Include="src\render\Shaders.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\PipelineStateObject.h">
+    <ClInclude Include="src\gui\imgui\imconfig.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Shaders.h">
+    <ClInclude Include="src\gui\imgui\imgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imgui_impl_dx12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imgui_impl_win32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imgui_internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imstb_rectpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imstb_textedit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\imgui\imstb_truetype.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -229,10 +262,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\arrow.vtn" />
+    <None Include="src\gui\imgui\imgui.natstepfilter" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\cube.txt" />
     <Text Include="assets\plane.txt" />
     <Text Include="assets\sphere.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="src\gui\imgui\imgui.natvis" />
   </ItemGroup>
 </Project>

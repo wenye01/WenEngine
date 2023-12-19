@@ -120,7 +120,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -132,8 +132,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\graphics\PipelineStateObject.cpp" />
-    <ClCompile Include="src\graphics\Shaders.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_demo.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_tables.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\render\Shaders.cpp" />
     <ClCompile Include="src\render\Resource.cpp" />
     <ClCompile Include="src\render\Render.cpp" />
@@ -157,8 +162,14 @@
     <ClCompile Include="src\windowsCommons\WICTextureLoader12.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\PipelineStateObject.h" />
-    <ClInclude Include="src\graphics\Shaders.h" />
+    <ClInclude Include="src\gui\imgui\imconfig.h" />
+    <ClInclude Include="src\gui\imgui\imgui.h" />
+    <ClInclude Include="src\gui\imgui\imgui_impl_dx12.h" />
+    <ClInclude Include="src\gui\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="src\gui\imgui\imgui_internal.h" />
+    <ClInclude Include="src\gui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="src\gui\imgui\imstb_textedit.h" />
+    <ClInclude Include="src\gui\imgui\imstb_truetype.h" />
     <ClInclude Include="src\render\Shaders.h" />
     <ClInclude Include="src\render\Resource.h" />
     <ClInclude Include="src\render\Render.h" />
@@ -243,11 +254,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\arrow.vtn" />
+    <None Include="src\gui\imgui\imgui.natstepfilter" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\cube.txt" />
     <Text Include="assets\plane.txt" />
     <Text Include="assets\sphere.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="src\gui\imgui\imgui.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

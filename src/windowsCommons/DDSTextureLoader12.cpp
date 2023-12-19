@@ -1245,8 +1245,8 @@ namespace
         size_t maxsize,
         std::vector<D3D12_SUBRESOURCE_DATA>& subresources,
         Gloria::GloriaTextureInfo& info,
-        bool SRGB,
-        _Out_opt_ bool* outIsCubeMap) noexcept(false)
+        bool SRGB
+    ) noexcept(false)
     {
         HRESULT hr = S_OK;
 
@@ -1462,10 +1462,10 @@ namespace
             return HRESULT_E_NOT_SUPPORTED;
         }
 
-        if (outIsCubeMap != nullptr)
-        {
-            *outIsCubeMap = isCubeMap;
-        }
+        //if (outIsCubeMap != nullptr)
+        //{
+        //    *outIsCubeMap = isCubeMap;
+        //}
 
         if (SRGB)
         {

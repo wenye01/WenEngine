@@ -185,8 +185,9 @@ namespace Gloria
         this->pRender->Draw();
     }
 
-    void EndFrame(const GameTimer& gametimer)
+    void GloriaEngine::EndFrame(const GameTimer& gametimer)
     {
 
     }
+
 }

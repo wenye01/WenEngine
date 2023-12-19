@@ -45,6 +45,11 @@ namespace Gloria
 
         void EndFrame(const GameTimer& gametimer);
 
+        //void OnMouseDown(WPARAM btnState, int x, int y);
+        //void OnMouseUp(WPARAM btnState, int x, int y);
+        //void OnMouseMove(WPARAM btnState, int x, int y);
+        //void OnMouseWheel(float WheelDistance);
+
     protected:
         static GloriaEngine* EngineSingleton;
         std::wstring WIndowTitle = L"Engine";
