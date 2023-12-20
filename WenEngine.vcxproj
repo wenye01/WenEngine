@@ -104,7 +104,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
@@ -120,7 +120,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;%(PreprocessorDefinitions);_UNICODE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\render\InputLayout.cpp" />
+    <ClCompile Include="src\render\PipelineStateObject.cpp" />
     <ClCompile Include="src\gui\imgui\imgui.cpp" />
     <ClCompile Include="src\gui\imgui\imgui_demo.cpp" />
     <ClCompile Include="src\gui\imgui\imgui_draw.cpp" />
@@ -160,8 +162,11 @@
     <ClCompile Include="src\windowsCommons\DDSTextureLoader12.cpp" />
     <ClCompile Include="src\render\Textures.cpp" />
     <ClCompile Include="src\windowsCommons\WICTextureLoader12.cpp" />
+    <ClCompile Include="src\scene\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\render\InputLayout.h" />
+    <ClInclude Include="src\render\PipelineStateObject.h" />
     <ClInclude Include="src\gui\imgui\imconfig.h" />
     <ClInclude Include="src\gui\imgui\imgui.h" />
     <ClInclude Include="src\gui\imgui\imgui_impl_dx12.h" />
@@ -194,6 +199,7 @@
     <ClInclude Include="src\windowsCommons\DDSTextureLoader12.h" />
     <ClInclude Include="src\render\Textures.h" />
     <ClInclude Include="src\windowsCommons\WICTextureLoader12.h" />
+    <ClInclude Include="src\scene\World.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\cube.hlsl">

@@ -22,4 +22,9 @@ namespace Gloria
     {
 
     }
+
+    void Render::EndFrame()
+    {
+
+    }
 }

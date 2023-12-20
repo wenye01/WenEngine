@@ -16,6 +16,8 @@ namespace Gloria
         void Initialize();
 
         void Draw();
+
+        void EndFrame();
     private:
     };
 }

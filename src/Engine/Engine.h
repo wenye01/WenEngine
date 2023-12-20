@@ -6,6 +6,7 @@
 
 #include "../d3d12/D3D12Common.h"
 #include "../render/Render.h"
+#include "../scene/World.h"
 
 namespace Gloria
 {
@@ -25,7 +26,7 @@ namespace Gloria
         HINSTANCE   GetEngineInstanceHandle()const;
         HWND        GetMainWindow() const;
 
-        bool Initialize();
+        bool Initialize(World* world);
 
         int Run();
 
@@ -45,14 +46,14 @@ namespace Gloria
 
         void EndFrame(const GameTimer& gametimer);
 
-        //void OnMouseDown(WPARAM btnState, int x, int y);
-        //void OnMouseUp(WPARAM btnState, int x, int y);
-        //void OnMouseMove(WPARAM btnState, int x, int y);
-        //void OnMouseWheel(float WheelDistance);
+        void OnMouseDown(WPARAM btnState, int x, int y) { this->pWorld->OnMouseDown(btnState, x, y); }
+        void OnMouseUp(WPARAM btnState, int x, int y) { this->pWorld->OnMouseUp(btnState, x, y); }
+        void OnMouseMove(WPARAM btnState, int x, int y) { this->pWorld->OnMouseMove(btnState, x, y); }
+        void OnMouseWheel(float WheelDistance) { this->pWorld->OnMouseWheel(WheelDistance); }
 
     protected:
         static GloriaEngine* EngineSingleton;
-        std::wstring WIndowTitle = L"Engine";
+        std::wstring WindowTitle = L"Engine";
 
         HINSTANCE EngineInstanceHandle = nullptr;
         HWND      MainWindowHandle = nullptr;
@@ -69,6 +70,8 @@ namespace Gloria
         GameTimer Timer;
 
         std::unique_ptr<D3D12Common> pCommon;
+
+        std::unique_ptr<World> pWorld;
 
         std::unique_ptr<Render> pRender;
     };
