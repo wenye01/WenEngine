@@ -233,8 +233,38 @@ namespace Gloria
         }
 
         // TODO : Sampler
+        std::vector<CD3DX12_STATIC_SAMPLER_DESC> Samplers;
 
-        CD3DX12_ROOT_SIGNATURE_DESC r
+        CD3DX12_ROOT_SIGNATURE_DESC RootSignatureDesc(
+            (UINT)SlotRootParameter.size(),
+            SlotRootParameter.data(),
+            (UINT)Samplers.size(),
+            Samplers.data(),
+            D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
+
+        Microsoft::WRL::ComPtr<ID3DBlob> serializedRootSignature = nullptr;
+        Microsoft::WRL::ComPtr<ID3DBlob> errorBlob = nullptr;
+
+        auto hr = D3D12SerializeRootSignature(
+            &RootSignatureDesc,
+            D3D_ROOT_SIGNATURE_VERSION_1,
+            serializedRootSignature.GetAddressOf(),
+            errorBlob.GetAddressOf()
+        );
+        
+        if (errorBlob != nullptr);
+        {
+            ::OutputDebugStringA((char*)errorBlob->GetBufferPointer());
+        }
+
+        ThrowIfFailed(hr);
+
+        this->pCommon->GetDevice()->GetD3DDevice()->CreateRootSignature(
+            0,
+            serializedRootSignature->GetBufferPointer(),
+            serializedRootSignature->GetBufferSize(),
+            IID_PPV_ARGS(&rootSignature)
+        );
     }
 
 }
