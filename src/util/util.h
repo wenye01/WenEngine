@@ -19,5 +19,11 @@ namespace Gloria
                 return L"";
             }
         }
+
+        static std::wstring GetShaderDir()
+        {// TODO
+            std::wstring path = L"../../shaders";
+            return path;
+        }
     };
 }
