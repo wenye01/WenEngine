@@ -87,6 +87,7 @@ namespace Gloria
             this->GetShaderParameters(csBlob, ShaderType::COMPUTE_SHADER);
         }
 
+        this->CreateRootSignature();
     }
 
     Microsoft::WRL::ComPtr<ID3DBlob> Shader::CompileShader(const std::wstring filepath, const D3D_SHADER_MACRO* macro, const std::string& Entrypoint, const std::string& Target)
@@ -177,6 +178,30 @@ namespace Gloria
         }
     }
 
+    D3D12_SHADER_VISIBILITY Shader::GetShaderVisibility(ShaderType type)
+    {
+        D3D12_SHADER_VISIBILITY visibility;
+
+        if (type == ShaderType::VERTEX_SHADER)
+        {
+            visibility = D3D12_SHADER_VISIBILITY_VERTEX;
+        }
+        else if (type == ShaderType::PIXEL_SHADER)
+        {
+            visibility = D3D12_SHADER_VISIBILITY_PIXEL;
+        }
+        else if (type == ShaderType::COMPUTE_SHADER)
+        {
+            visibility = D3D12_SHADER_VISIBILITY_ALL;
+        }
+        else
+        {
+            assert(0);
+        }
+
+        return visibility;
+    }
+
     void Shader::CreateRootSignature()
     {
         std::vector<CD3DX12_ROOT_PARAMETER> SlotRootParameter;
@@ -233,7 +258,7 @@ namespace Gloria
         }
 
         // TODO : Sampler
-        std::vector<CD3DX12_STATIC_SAMPLER_DESC> Samplers;
+        std::vector<CD3DX12_STATIC_SAMPLER_DESC> Samplers = this->CreateStaticSampler();
 
         CD3DX12_ROOT_SIGNATURE_DESC RootSignatureDesc(
             (UINT)SlotRootParameter.size(),
@@ -267,4 +292,8 @@ namespace Gloria
         );
     }
 
+    std::vector<CD3DX12_STATIC_SAMPLER_DESC> Shader::CreateStaticSampler()
+    {
+        
+    }
 }

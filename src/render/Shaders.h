@@ -96,6 +96,8 @@ namespace Gloria
 
         void CreateRootSignature();
 
+        std::vector<CD3DX12_STATIC_SAMPLER_DESC> CreateStaticSampler();
+
     public:
         std::unordered_map<std::string, Microsoft::WRL::ComPtr<ID3DBlob>> Shaders;
 
