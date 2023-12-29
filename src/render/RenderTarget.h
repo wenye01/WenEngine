@@ -8,7 +8,7 @@ namespace Gloria
     class RenderTarget
     {
     public:
-        RenderTarget();
+        RenderTarget(D3D12Common* pcommon, bool bdepth, UINT width, UINT height, DXGI_FORMAT format, DirectX::XMFLOAT4 clearValue);
         
         virtual ~RenderTarget();
 
@@ -36,5 +36,33 @@ namespace Gloria
         DXGI_FORMAT Format;
 
         DirectX::XMFLOAT4 ClearValue;
+    };
+
+    class RenderTarget2D :public RenderTarget
+    {
+    public:
+        RenderTarget2D(D3D12Common* pcommon, bool bdepth, UINT width, UINT height, DXGI_FORMAT format, DirectX::XMFLOAT4 clearValue);
+
+        GloriaRenderTargetView* GetRTV() const;
+        
+        GloriaDepthStencilView* GetDSV() const;
+
+        GloriaShaderReosurceView* GetSRV() const;
+    private:
+        void CreateTexture();
+    };
+
+    class RenderTargetCube :public RenderTarget
+    {
+    public:
+        RenderTargetCube(D3D12Common* pcommon, bool bdepth, UINT sideLength, DXGI_FORMAT format, DirectX::XMFLOAT4 clearValue);
+
+        GloriaRenderTargetView* GetRTV(int index) const;
+
+        GloriaDepthStencilView* GetDSV(int index) const;
+
+        GloriaShaderReosurceView* GetSRV() const;
+    private:
+        void CreateTexture();
     };
 }
