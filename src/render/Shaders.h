@@ -108,11 +108,11 @@ namespace Gloria
         std::vector<ShaderUAVParameter> UAVParams;
 
         std::vector<ShaderSamplerParameter> SamplerParams;
-
-    private:
-        ShaderInfomation ShaderInfo;
         
         Microsoft::WRL::ComPtr<ID3D12RootSignature> rootSignature;
+    private:
+        ShaderInfomation ShaderInfo;
+             
 
         int CBVSignatureBaseBindSlot = -1;
 

@@ -46,10 +46,10 @@ namespace Gloria
 
         ~GraphicsPSOManage();
 
-        void TryCreatePSO();
+        void TryCreatePSO(PSOInfo info);
 
     private:
-        void CreatePSO();
+        void CreatePSO(PSOInfo info);
     private:
         D3D12Common* pCommon = nullptr;
 
